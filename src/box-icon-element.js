@@ -162,7 +162,6 @@ export class BoxIconElement extends HTMLElement {
     }
     this._state = {
       $iconHolder: this.$ui.getElementById('icon'),
-      type: this.getAttribute('type')
     };
   }
 
@@ -211,6 +210,9 @@ export class BoxIconElement extends HTMLElement {
   }
 
   connectedCallback() {
+      this._state = {
+          type: this.getAttribute('type')
+      };
       if (usingShadyCss()) {
         GLOBAL.ShadyCSS.styleElement(this);
       }
